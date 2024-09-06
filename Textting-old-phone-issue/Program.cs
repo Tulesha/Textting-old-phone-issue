@@ -6,6 +6,7 @@ Console.WriteLine(tel.SendMessage("4433555 555666096667775553#"));
 Console.WriteLine(tel.SendMessage("34447288555#"));
 Console.WriteLine(tel.SendMessage("4433999#"));
 Console.WriteLine(tel.SendMessage("666 6633089666084477733 33#"));
+Console.WriteLine(tel.SendMessage("00 11 22#"));
 
 Console.ReadLine();
 
@@ -55,32 +56,39 @@ public class Telephone
         var result = new StringBuilder();
         char? lastChar = null;
         var repeater = 1;
-        foreach (var currChar in codeMessage.TakeWhile(currChar => currChar != '#'))
+        try
         {
-            switch (currChar)
+            foreach (var currChar in codeMessage.TakeWhile(currChar => currChar != '#'))
             {
-                case ' ':
-                    lastChar = null;
-                    repeater = 1;
-                    continue;
-                case '*':
+                switch (currChar)
+                {
+                    case ' ':
+                        lastChar = null;
+                        repeater = 1;
+                        continue;
+                    case '*':
+                        result.Remove(result.Length - 1, 1);
+                        continue;
+                }
+
+                if (lastChar == currChar)
+                {
+                    repeater += 1;
                     result.Remove(result.Length - 1, 1);
-                    continue;
-            }
+                }
+                else
+                {
+                    repeater = 1;
+                }
 
-            if (lastChar == currChar)
-            {
-                repeater += 1;
-                result.Remove(result.Length - 1, 1);
-            }
-            else
-            {
-                repeater = 1;
-            }
+                result.Append(_alphabet[new string(currChar, repeater)]);
 
-            result.Append(_alphabet[new string(currChar, repeater)]);
-
-            lastChar = currChar;
+                lastChar = currChar;
+            }
+        }
+        catch (KeyNotFoundException)
+        {
+            Console.WriteLine("Invalid message sequence");
         }
 
         return result.ToString();
