@@ -72,13 +72,13 @@ public class Telephone
             {
                 repeater += 1;
                 result.Remove(result.Length - 1, 1);
-                result.Append(_alphabet[new string(currChar, repeater)]);
             }
             else
             {
                 repeater = 1;
-                result.Append(_alphabet[currChar.ToString()]);
             }
+
+            result.Append(_alphabet[new string(currChar, repeater)]);
 
             lastChar = currChar;
         }
