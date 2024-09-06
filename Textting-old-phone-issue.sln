@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Textting-old-phone-issue", "Textting-old-phone-issue\Textting-old-phone-issue.csproj", "{47D14B8C-3902-4345-99F8-B0A57F92D095}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Textting-old-phone-issue.Tests", "Textting-old-phone-issue.Tests\Textting-old-phone-issue.Tests.csproj", "{105390B1-2560-47DE-A2E6-59DF555E58DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{47D14B8C-3902-4345-99F8-B0A57F92D095}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47D14B8C-3902-4345-99F8-B0A57F92D095}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47D14B8C-3902-4345-99F8-B0A57F92D095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{105390B1-2560-47DE-A2E6-59DF555E58DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{105390B1-2560-47DE-A2E6-59DF555E58DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{105390B1-2560-47DE-A2E6-59DF555E58DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{105390B1-2560-47DE-A2E6-59DF555E58DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
