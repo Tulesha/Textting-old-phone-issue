@@ -74,13 +74,23 @@ public class Phone
                 repeater = 1;
             }
 
-            try
+            // Try to add normal letter
+            if (_alphabet.TryGetValue(new string(currChar, repeater), out var mes))
             {
-                result.Append(_alphabet[new string(currChar, repeater)]);
+                result.Append(mes);
             }
-            catch (KeyNotFoundException)
+            else
             {
-                throw new TextingException(new string(currChar, repeater));
+                // Try to handle cycling recording of the letter
+                repeater = 1;
+                try
+                {
+                    result.Append(_alphabet[new string(currChar, repeater)]);
+                }
+                catch (KeyNotFoundException)
+                {
+                    throw new TextingException(new string(currChar, repeater));
+                }
             }
 
             lastChar = currChar;
